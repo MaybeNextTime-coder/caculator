@@ -1,4 +1,4 @@
-﻿namespace Calculator
+﻿namespace StringCalculator.Tests
 {
     public class UnitTest1
     {
