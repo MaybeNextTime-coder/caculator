@@ -1,12 +1,20 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
+using System.Data;
 namespace StringCalculator
 {
-    internal class ExpressionEvaluator
+    public class ExpressionEvaluator
     {
+        public double Evaluate(string expression)
+        {
+            var dataTable = new DataTable();
+            try
+            {
+                return Convert.ToDouble(dataTable.Compute(expression, string.Empty));
+            }
+            catch (Exception ex)
+            {
+                throw new FormatException("Недопустимое выражение", ex);
+            }
+        }
     }
 }
