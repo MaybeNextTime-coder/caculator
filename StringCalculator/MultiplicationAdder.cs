@@ -1,12 +1,17 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Text.RegularExpressions;
 
 namespace StringCalculator
 {
-    internal class MultiplicationAdder
+    public class MultiplicationAdder
     {
+        public string AddMultiplicationSign(string expression)
+        {
+            return Regex.Replace(expression, @"(\d)(\()", "$1*$2")
+                         .Replace(@")(\d)", ")*$1");
+            expression = Regex.Replace(expression, @"(\d)(\()", "$1*$2");
+            expression = Regex.Replace(expression, @"\)(\d)", ")*$1");
+            return expression;
+        }
     }
+}
 }
