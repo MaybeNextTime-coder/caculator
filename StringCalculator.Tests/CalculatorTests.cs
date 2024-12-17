@@ -1,6 +1,4 @@
-﻿using System;
-using Xunit;
-using Xunit;
+﻿using Xunit;
 
 namespace StringCalculator.Tests
 {
@@ -13,6 +11,7 @@ namespace StringCalculator.Tests
             var result = Calculator.Calculate(expression);
             Assert.Equal(4, result);
         }
+
         [Fact]
         public void Test_Calculate_ValidExpression_With_Parentheses()
         {
@@ -20,6 +19,7 @@ namespace StringCalculator.Tests
             var result = Calculator.Calculate(expression);
             Assert.Equal(14, result);
         }
+
         [Fact]
         public void Test_Calculate_ValidExpression_Complex()
         {
@@ -27,6 +27,7 @@ namespace StringCalculator.Tests
             var result = Calculator.Calculate(expression);
             Assert.Equal(11, result);
         }
+
         [Fact]
         public void Test_Calculate_ValidExpression_Division()
         {
@@ -34,6 +35,7 @@ namespace StringCalculator.Tests
             var result = Calculator.Calculate(expression);
             Assert.Equal(5, result);
         }
+
         [Fact]
         public void Test_Calculate_ValidExpression_NegativeNumbers()
         {
@@ -41,24 +43,28 @@ namespace StringCalculator.Tests
             var result = Calculator.Calculate(expression);
             Assert.Equal(-17, result);
         }
+
         [Fact]
         public void Test_Calculate_InvalidExpression_TwoPlusSigns()
         {
             var expression = "2 + + 2";
             Assert.Throws<FormatException>(() => Calculator.Calculate(expression));
         }
+
         [Fact]
         public void Test_Calculate_InvalidExpression_With_Characters()
         {
             var expression = "2 + a";
             Assert.Throws<FormatException>(() => Calculator.Calculate(expression));
         }
+
         [Fact]
         public void Test_Calculate_EmptyExpression()
         {
             var expression = "";
             Assert.Throws<FormatException>(() => Calculator.Calculate(expression));
         }
+
         [Fact]
         public void Test_Calculate_ValidExpression_WithMultipleOperators()
         {
@@ -66,12 +72,15 @@ namespace StringCalculator.Tests
             var result = Calculator.Calculate(expression);
             Assert.Equal(11, result);
         }
+
         [Fact]
         public void Test_Calculate_InvalidExpression_DivideByZero()
         {
             var expression = "10 / 0";
             Assert.Throws<DivideByZeroException>(() => Calculator.Calculate(expression));
+            Assert.Throws<FormatException>(() => Calculator.Calculate(expression));
         }
+
         [Fact]
         public void Test_Calculate_ValidExpression_WithNestedParentheses()
         {
@@ -79,6 +88,7 @@ namespace StringCalculator.Tests
             var result = Calculator.Calculate(expression);
             Assert.Equal(45, result);
         }
+
         [Fact]
         public void Test_Calculate_InvalidExpression_UnmatchedParentheses()
         {
